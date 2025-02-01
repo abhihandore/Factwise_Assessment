@@ -1,0 +1,57 @@
+
+/* Accordion Summary Component */
+.summary {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    text-align: left;
+    padding: 0.8rem 1.2rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* &:focus-within {
+        pointer-events: none;
+    } */
+
+    &.active {
+        & .chevron {
+            transform: rotate(180deg);
+            transform-origin: center;
+        }
+    }
+
+    & .chevron {
+        transition: transform 0.3s ease-in-out;
+        margin-left: auto;
+    }
+}
+
+/* Accordion Item Component */
+.item {
+    margin-bottom: 10px;
+}
+
+/* Accordion Detail Component */
+.details {
+    max-height: 0;
+    overflow: hidden;
+    text-transform: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    transition-duration: 0.5s;
+    transition-property: max-height;
+    z-index: 1;
+
+    &.expanded {
+        max-height: 100rem;
+        transition-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+        transition-duration: 0.5s;
+        transition-property: max-height;
+    }
+
+    
+    & .details_content {
+        padding: .875rem 1.2rem;
+    }
+}

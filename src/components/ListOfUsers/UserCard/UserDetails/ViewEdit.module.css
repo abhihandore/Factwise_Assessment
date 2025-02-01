@@ -1,0 +1,47 @@
+.view_wrap {
+    display: flex;
+    flex-wrap: wrap;
+
+    & .field {
+        /* font-size: 14px; */
+        flex-basis: 33.33%;
+        flex-grow: 1;
+        padding-left: 15px;
+        margin-left: -15px;
+        padding-top: 15px;
+        margin-top: -15px;
+        margin-bottom: 10px;
+    }
+}
+
+.formFields {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 15px;
+
+
+    & .field {
+        /* font-size: 14px; */
+        flex-basis: 33.33%;
+        flex-grow: 0;
+        flex-shrink: 1;
+        padding-left: 15px;
+        margin-left: -15px;
+        padding-top: 15px;
+        margin-top: -15px;
+        margin-bottom: 15px;
+
+        &:last-child {
+            flex-grow: 1;
+            flex-basis: 100%;
+        }
+    }
+}
+
+.actionsWrap {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px;
+    column-gap: 4px;
+}

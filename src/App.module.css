@@ -1,0 +1,14 @@
+.main {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.searchBar {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.heading {
+    font-size: 1.875rem;
+}
