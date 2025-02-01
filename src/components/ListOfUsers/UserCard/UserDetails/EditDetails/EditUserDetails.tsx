@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { Celebrity } from "../../../../../types/listOfUsers";
 import Label from "../../../../Ui/Label";
 import Select from "../../../../Ui/Select/Select";
@@ -16,16 +16,17 @@ import {
 import { EditUserDetailsFormState } from "./type";
 import { validations } from "./validations";
 
-const EditUserDetails = ({
-  user,
-  onSubmit,
-  onCancel,
-  updatedName,
-}: {
+interface Props {
   user: Celebrity;
   onSubmit: (formState: EditUserDetailsFormState) => void;
   onCancel: () => void;
   updatedName: string;
+}
+const EditUserDetails: FC<Props> = ({
+  user,
+  onSubmit,
+  onCancel,
+  updatedName,
 }) => {
   const defaultValues = useMemo(
     () => ({
@@ -48,7 +49,6 @@ const EditUserDetails = ({
         { ...formState, name: updatedName },
         { ...defaultValues, name: previousName }
       );
-      console.log(hasChanges, "hasChanges");
 
       setHasChanges(hasChanges); // If there are changes, set isValid to false, else true
     }, 500);

@@ -1,7 +1,6 @@
 import { FC, ReactNode } from "react";
 import { AccordionContext } from "./AccordionContext";
 interface IProps {
-  //   id: string;
   className?: string;
   children: ReactNode;
   active: string | null;
@@ -9,18 +8,10 @@ interface IProps {
 }
 
 const Accordion: FC<IProps> = (props) => {
-  const {
-    children,
-    // id,
-    // className,
-    active,
-    onSelect,
-  } = props;
+  const { children, active, onSelect } = props;
   return (
     <AccordionContext.Provider value={{ active, onSelect }}>
-      {/* <div id={id} className={className}> */}
       {children}
-      {/* </div> */}
     </AccordionContext.Provider>
   );
 };

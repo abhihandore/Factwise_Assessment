@@ -1,17 +1,14 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import Input from "../../Ui/Input";
 import styles from "./UserCard.module.css";
 import useDebounce from "../../../hooks/useDebounce";
 
-const CelebrityName = ({
-  isEdit,
-  name,
-  setUserName,
-}: {
+interface Props {
   isEdit: boolean;
   name: string;
   setUserName: Dispatch<SetStateAction<string>>;
-}) => {
+}
+const CelebrityName: FC<Props> = ({ isEdit, name, setUserName }) => {
   const [input, setInput] = useState(name);
   const debouncedValue = useDebounce(input, 300); // Debounce with 300ms delay
 

@@ -1,5 +1,6 @@
 import {
   Dispatch,
+  FC,
   SetStateAction,
   useCallback,
   useMemo,
@@ -17,18 +18,19 @@ import EditUserDetails from "./UserDetails/EditDetails/EditUserDetails";
 import { isUserIsAdult } from "./UserDetails/helper";
 import { EditUserDetailsFormState } from "./UserDetails/EditDetails/type";
 
-const UserCard = ({
-  user,
-  setFieldInEditMode,
-  currentEdit,
-  onSave,
-  onDelete,
-}: {
+interface Props {
   user: Celebrity;
   setFieldInEditMode: Dispatch<SetStateAction<string | null>>;
   currentEdit: string | null;
   onSave: (data: Celebrity) => void;
   onDelete: (id: number) => void;
+}
+const UserCard: FC<Props> = ({
+  user,
+  setFieldInEditMode,
+  currentEdit,
+  onSave,
+  onDelete,
 }) => {
   const name = `${user.first} ${user.last}`;
   const [userName, setUserName] = useState(name);
@@ -70,11 +72,7 @@ const UserCard = ({
 
   return (
     <AccordionItem className={styles.cardWrap}>
-      <AccordionSummary
-        id={panelKey}
-        preventClick={!!currentEdit}
-        // preventClick={!!currentEdit && currentEdit !== panelKey}
-      >
+      <AccordionSummary id={panelKey} preventClick={!!currentEdit}>
         <div className={styles.usersSummary}>
           <div className={styles.userProfile}>
             <img src={user.picture} alt={user.first} />

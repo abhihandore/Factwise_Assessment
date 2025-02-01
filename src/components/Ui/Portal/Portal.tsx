@@ -8,7 +8,6 @@ interface Props {
 const Portal: FC<Props> = ({ children, containerId = "root" }) => {
   const [container, setContainer] = useState<HTMLElement | null>(null);
 
-  // Create or find the container element
   useEffect(() => {
     let portalContainer = document.getElementById(containerId);
 
@@ -20,17 +19,8 @@ const Portal: FC<Props> = ({ children, containerId = "root" }) => {
     }
 
     setContainer(portalContainer);
-
-    // // Cleanup: Remove the container when the component unmounts
-    // return () => {
-    //   if (portalContainer) {
-    //     document.body.removeChild(portalContainer);
-    //   }
-    // };
   }, [containerId]);
 
-  // Render the children into the portal container
-  console.log(container);
   if (!container) return null;
 
   return ReactDOM.createPortal(children, container);

@@ -1,19 +1,16 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import DeleteSvg from "../../../../../assets/icons/DeleteSvg";
 import EditSvg from "../../../../../assets/icons/EditSvg";
 import IconButton from "../../../../Ui/IconButton";
 import styles from "../ViewEdit.module.css";
 import ConfirmationModal from "../../../../Ui/ConfirmationModal";
 
-const ViewActions = ({
-  canEdit,
-  onDelete,
-  onEdit,
-}: {
+interface Props {
   canEdit: boolean;
   onDelete: () => void;
   onEdit: () => void;
-}) => {
+}
+const ViewActions: FC<Props> = ({ canEdit, onDelete, onEdit }) => {
   const [openModal, setOpenModal] = useState(false);
 
   return (

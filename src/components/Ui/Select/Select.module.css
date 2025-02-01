@@ -36,7 +36,6 @@
 }
 
 .dropdownList{
-    /* font-size: 14px; */
     & .dropdownListItem {
         font-size: inherit;
         white-space: nowrap;
